@@ -47,39 +47,39 @@ ILOSTLBEGIN
 
 class IlcWCSSI : public IlcConstraintI {
 protected:
-	double const* const* const _dissimilarities;
+    double const* const* const _dissimilarities;
 
-	IlcInt _n, _k; // size of problem, nb of clusters
-	IlcInt p, q; // size of sets P and U resp.
+    IlcInt _n, _k; // size of problem, nb of clusters
+    IlcInt p, q; // size of sets P and U resp.
 
-	IlcIntVarArray _X; // Point assignments
-	IlcFloatVar _V; // total WCSS
+    IlcIntVarArray _X; // Point assignments
+    IlcFloatVar _V; // total WCSS
 
-	// In propagate
-	std::vector<IlcInt> setU_unassigned;
-	std::vector<IlcInt>* setP_assigned;
+    // In propagate
+    std::vector<IlcInt> setU_unassigned;
+    std::vector<IlcInt>* setP_assigned;
 
-	IlcIntArray sizeCluster;
+    IlcIntArray sizeCluster;
 
-	IlcFloat** lb_schedule;
+    IlcFloat** lb_schedule;
 
-	IlcFloatArray S1;
-	IlcFloat** s2;
-	std::vector<IlcFloat>* s3;
+    IlcFloatArray S1;
+    IlcFloat** s2;
+    std::vector<IlcFloat>* s3;
 
-	IlcFloat** lb_global;
+    IlcFloat** lb_global;
 
-	IlcFloatArray lb_except;
-	IlcFloatArray lb_prime;
+    IlcFloatArray lb_except;
+    IlcFloatArray lb_prime;
 
-	double _epsc;
+    double _epsc;
 
 public:
-	IlcWCSSI(IloCPEngine cp, IlcIntVarArray X, IlcFloatVar V, const Data& data);
-	~IlcWCSSI();
-	virtual void propagate();
-	virtual void post();
-	IlcIntVarArray getEngineVars() { return _X; }
+    IlcWCSSI(IloCPEngine cp, IlcIntVarArray X, IlcFloatVar V, const Data& data);
+    ~IlcWCSSI();
+    virtual void propagate();
+    virtual void post();
+    IlcIntVarArray getEngineVars() { return _X; }
 };
 
 

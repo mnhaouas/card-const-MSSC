@@ -50,50 +50,50 @@ ILOSTLBEGIN
 
 class IlcWCSS_NetworkCardControlI : public IlcConstraintI {
 protected:
-	inline IlcFloat getDeltaObj(IlcInt origin_i, IlcInt origin_c, IlcInt target_c);
-	IlcFloat deltaObj;
+    inline IlcFloat getDeltaObj(IlcInt origin_i, IlcInt origin_c, IlcInt target_c);
+    IlcFloat deltaObj;
 
-	IlcRevInt* destination;
-	IlcRevBool* varWasFixed;
+    IlcRevInt* destination;
+    IlcRevBool* varWasFixed;
 
-	double const* const* const _dissimilarities;
-	IlcIntArray _targetCards;
+    double const* const* const _dissimilarities;
+    IlcIntArray _targetCards;
 
-	IlcInt _n, _k; // size of problem, nb of clusters
-	IlcInt p, q; // size of sets P and U resp.
+    IlcInt _n, _k; // size of problem, nb of clusters
+    IlcInt p, q; // size of sets P and U resp.
 
-	IlcIntVarArray _X; // Point assignments
-	IlcFloatVar _V; // total WCSS
+    IlcIntVarArray _X; // Point assignments
+    IlcFloatVar _V; // total WCSS
 
-	// In propagate
-	std::vector<IlcInt> setU_unassigned;
-	std::vector<IlcInt>* setP_assigned;
+    // In propagate
+    std::vector<IlcInt> setU_unassigned;
+    std::vector<IlcInt>* setP_assigned;
 
-	IlcIntArray sizeCluster;
+    IlcIntArray sizeCluster;
 
-	IlcFloatArray S1;
-	IlcFloat** s2;
-	std::vector<IlcFloat>* s3;
+    IlcFloatArray S1;
+    IlcFloat** s2;
+    std::vector<IlcFloat>* s3;
 
-	IlcInt cplex_var_map_counter;
-	IlcInt** problem_to_cplex_var_map;
-	IlcIntArray problem_to_cplex_cluster_var_map;
+    IlcInt cplex_var_map_counter;
+    IlcInt** problem_to_cplex_var_map;
+    IlcIntArray problem_to_cplex_cluster_var_map;
 
-	IlcRevFloat* lb_global;
+    IlcRevFloat* lb_global;
 
-	IlcIntArray nb_points_to_add;
-	IlcInt max_clust_completion;
-	IlcInt cluster_not_filled_counter;
-	IlcRevBool** hasFlow;
+    IlcIntArray nb_points_to_add;
+    IlcInt max_clust_completion;
+    IlcInt cluster_not_filled_counter;
+    IlcRevBool** hasFlow;
 
-	double _epsc;
+    double _epsc;
 
 public:
-	IlcWCSS_NetworkCardControlI(IloCPEngine cp, IlcIntVarArray X, IlcFloatVar V, const Data& data);
-	~IlcWCSS_NetworkCardControlI();
-	virtual void propagate();
-	virtual void post();
-	IlcIntVarArray getEngineVars() { return _X; }
+    IlcWCSS_NetworkCardControlI(IloCPEngine cp, IlcIntVarArray X, IlcFloatVar V, const Data& data);
+    ~IlcWCSS_NetworkCardControlI();
+    virtual void propagate();
+    virtual void post();
+    IlcIntVarArray getEngineVars() { return _X; }
 };
 
 IlcConstraint IlcWCSS_NetworkCardControl(IlcIntVarArray X, IlcFloatVar V, const Data& data);

@@ -48,45 +48,45 @@ ILOSTLBEGIN
 
 class IlcWCSS_StandardCardControlI : public IlcConstraintI {
 protected:
-	double const* const* const _dissimilarities;
-	IlcIntArray _targetCards;
+    double const* const* const _dissimilarities;
+    IlcIntArray _targetCards;
 
-	IlcInt _n, _k; // size of problem, nb of clusters
-	IlcInt p, q; // size of sets P and U resp.
-	
-	IlcIntVarArray _X; // Point assignments
-	IlcFloatVar _V; // total WCSS
+    IlcInt _n, _k; // size of problem, nb of clusters
+    IlcInt p, q; // size of sets P and U resp.
+    
+    IlcIntVarArray _X; // Point assignments
+    IlcFloatVar _V; // total WCSS
 
-	// In propagate
-	std::vector<IlcInt> setU_unassigned;
-	std::vector<IlcInt>* setP_assigned;
+    // In propagate
+    std::vector<IlcInt> setU_unassigned;
+    std::vector<IlcInt>* setP_assigned;
 
-	IlcIntArray sizeCluster;
+    IlcIntArray sizeCluster;
 
-	IlcFloat** lb_schedule;
+    IlcFloat** lb_schedule;
 
-	IlcFloatArray S1;
-	IlcFloat** s2;
-	std::vector<IlcFloat>* s3;
+    IlcFloatArray S1;
+    IlcFloat** s2;
+    std::vector<IlcFloat>* s3;
 
-	IlcFloat lb_global;
+    IlcFloat lb_global;
 
-	IlcFloat lb_except;
-	IlcFloat lb_prime;
+    IlcFloat lb_except;
+    IlcFloat lb_prime;
 
-	// Added
-	IlcIntArray nb_points_to_add;
-	IlcInt max_clust_completion;
-	IlcFloat V_prime;
+    // Added
+    IlcIntArray nb_points_to_add;
+    IlcInt max_clust_completion;
+    IlcFloat V_prime;
 
-	double _epsc;
+    double _epsc;
 
 public:
-	IlcWCSS_StandardCardControlI(IloCPEngine cp, IlcIntVarArray X, IlcFloatVar V, const Data& data);
-	~IlcWCSS_StandardCardControlI();
-	virtual void propagate();
-	virtual void post();
-	IlcIntVarArray getEngineVars() { return _X; }
+    IlcWCSS_StandardCardControlI(IloCPEngine cp, IlcIntVarArray X, IlcFloatVar V, const Data& data);
+    ~IlcWCSS_StandardCardControlI();
+    virtual void propagate();
+    virtual void post();
+    IlcIntVarArray getEngineVars() { return _X; }
 };
 
 IlcConstraint IlcWCSS_StandardCardControl(IlcIntVarArray X, IlcFloatVar V, const Data& data);

@@ -10,7 +10,7 @@
  * Main arguments: * vars, branching variables. In this context, representative integer variables of observations.
  *
  * Additional arguments: * data, refer to Data struct in Data.h for problem data nomenclature.
- *                       * searchParameters, refer to IlcMSSCSearchStrategy.h for information on CustomCPSearchOptions
+ *                       * searchParameters, see below for information on CustomCPSearchOptions
  *                       * solFound, bool from scope where engine IloCP is instantiated.
  *                             Is set to true once a first solution has been found using the engine's IloCP::next method.
  *
@@ -48,31 +48,31 @@ ILOSTLBEGIN
 #define __SEARCH_T
 
 namespace CustomCPSearchOptions {
-	enum class InitialSolution {
-		NONE, // Let main search generate an initial solution
-		GREEDY_INIT, // Generate init sol through a greedy assignment that minimizes delta objective at each step
-		MEMBERSHIPS_AS_INDICATED // Generate init sol as instructed in Data passed
-	};
+    enum class InitialSolution {
+        NONE, // Let main search generate an initial solution
+        GREEDY_INIT, // Generate init sol through a greedy assignment that minimizes delta objective at each step
+        MEMBERSHIPS_AS_INDICATED // Generate init sol as instructed in Data passed
+    };
 
-	enum class MainSearch {
-		MAX_MIN_VAR // Branch on variable which induces the largest minimum delta objective
-	};
+    enum class MainSearch {
+        MAX_MIN_VAR // Branch on variable which induces the largest minimum delta objective
+    };
 
-	enum class TieHandling {
-		NONE, // No tie handling
-		UNBOUND_FARTHEST_TOTAL_SS, // Start empty cluster farthest to un-assigned points on the basis of total sum of squares
-		FIXED_FARTHEST_DIST, // Start empty cluster farthest to fixed points on the basis of distance alone
-		FIXED_MAX_MIN, // Start empty cluster at the point that has the maximum distance to its closest cluster
-		FARTHEST_POINT_FROM_BIGGEST_CENTER, // Start empty cluster at the point that is farthest to the biggest cluster center
-		MAX_MIN_POINT_FROM_ALL_CENTER // Start empty cluster at the point that has maximum minimum distance to all cluster centers
-	};
+    enum class TieHandling {
+        NONE, // No tie handling
+        UNBOUND_FARTHEST_TOTAL_SS, // Start empty cluster farthest to un-assigned points on the basis of total sum of squares
+        FIXED_FARTHEST_DIST, // Start empty cluster farthest to fixed points on the basis of distance alone
+        FIXED_MAX_MIN, // Start empty cluster at the point that has the maximum distance to its closest cluster
+        FARTHEST_POINT_FROM_BIGGEST_CENTER, // Start empty cluster at the point that is farthest to the biggest cluster center
+        MAX_MIN_POINT_FROM_ALL_CENTER // Start empty cluster at the point that has maximum minimum distance to all cluster centers
+    };
 }
 
 
 struct SearchParameters {
-	CustomCPSearchOptions::InitialSolution initialSolution;
-	CustomCPSearchOptions::MainSearch mainSearch;
-	CustomCPSearchOptions::TieHandling tieHandling;
+    CustomCPSearchOptions::InitialSolution initialSolution;
+    CustomCPSearchOptions::MainSearch mainSearch;
+    CustomCPSearchOptions::TieHandling tieHandling;
 };
 
 #endif // !__SEARCH_T
