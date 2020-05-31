@@ -475,8 +475,8 @@ void IlcWCSS_NetworkCardControlI::propagate() {
 
 
 inline IlcFloat IlcWCSS_NetworkCardControlI::getDeltaObj(IlcInt origin_i, IlcInt origin_c, IlcInt targeted_c) {
-    //                                                      ^ relocated point                 ^ headed to
-    //                                                                       ^ whence it came
+    //                                                          ^ relocated point                 ^ headed to
+    //                                                                           ^ whence it came
 
     // Bellman-Ford
     // Rarely, there could be negative-weight cycles in this graph (which is why the version of this alg with a queue fails; inf loop). That's not a problem.
