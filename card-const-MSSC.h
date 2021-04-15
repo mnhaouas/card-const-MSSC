@@ -1,7 +1,4 @@
 /*
- * Author: Haouas, Mohammed Najib - may 30th, 2020
- *                 > Last modified: may 30th, 2020
- *
  * Include this header to your C++ sources to use the card-const-MSSC framework in your Concert Technology model.
  * Refer to git repository Readme file for usage instructions.
  *

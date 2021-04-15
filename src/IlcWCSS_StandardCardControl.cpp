@@ -1,7 +1,4 @@
 /*
- * Author: Haouas, Mohammed Najib - mar 29th, 2019
- *                 > Last modified: may 30th, 2020
- *
  * This constraint should be used in conjunction with an appropriate model to speedup exact Minimum Sum of Squares Clustering with pre-set, strict cluster cardinalities.
  * Therefore, this constraint can be used for the special case of balanced Minimum Sum of Squares Clustering (bMSSC).
  * This constraint should provide a significant boost over using a general constraint (refer to IloWCSS) in conjunction with a GCC to constrain the cluster cardinalities.

@@ -1,7 +1,4 @@
 /*
- * Author: Haouas, Mohammed Najib - may 30th, 2020
- *                 > Last modified: may 30th, 2020
- *
  * Example Concert Technology model using card-const-MSSC framework to help you get started with card-const-MSSC.
  * 
  * Note: this file is an implementation example intended to give a general idea

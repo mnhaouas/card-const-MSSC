@@ -1,7 +1,4 @@
 /*
- * Author: Haouas, Mohammed Najib - sept 10th, 2019
- *                 > Last modified: may 30th, 2020
- *
  * This is the branching strategy that guides the CP search. It is implemented as a goal to pass to the CP engine.
  * This goal places on the goals stack subsequent goals at each branching decision until a full solution has been instantiated.
  * Goals are generated in such a fashion as to produce a binary branching.

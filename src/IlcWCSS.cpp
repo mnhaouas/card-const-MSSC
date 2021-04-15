@@ -1,7 +1,4 @@
 /*
- * Author: Haouas, Mohammed Najib - oct 29th, 2018
- *                 > Last modified: may 30th, 2020
- *
  * This constraint should be used in conjunction with an appropriate model to speedup exact Minimum Sum of Squares Clustering (MSSC).
  * The speedup is the result of simultaneous filtering of both the objective variable V (total Within Cluster Sum of Squares, WCSS) and the reprentative variables X of the observations.
  * The objective function is filtered through tightening of the lower bound.

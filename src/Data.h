@@ -1,7 +1,4 @@
 /*
- * Author: Haouas, Mohammed Najib - sept 5th, 2019
- *                 > Last modified: may 30th, 2020
- *
  * Definition of the problem data structure which connects all parts of the resolution framework
  */
 
